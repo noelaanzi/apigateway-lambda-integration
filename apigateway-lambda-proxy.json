@@ -1,0 +1,14 @@
+{
+  "Data": {
+    "Customer": {
+      "CustomerId": "CU1000",
+      "Name": "Arockiadoss",
+      "Email": "apilambdanonproxy@gmail.com"
+    },
+    "Vehicle": {
+      "ManufactureCode": "V01",
+      "Model": "W214",
+      "ManufacturedDate": "2023-05-01"
+    }
+  }
+}
