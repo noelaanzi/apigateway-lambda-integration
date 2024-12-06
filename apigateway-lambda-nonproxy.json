@@ -1,7 +1,7 @@
 {
   "RequestPayload": {
     "QueryParam": {
-      "CustomerType": "Premium"
+      "action": "INSERT"
     },
     "Headers": {
       "CustomHeader": "CustomHeader-Test"
