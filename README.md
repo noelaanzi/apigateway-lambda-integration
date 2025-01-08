@@ -8,7 +8,10 @@ API Gateway - Lambda Proxy vs Non-Proxy integration
 
 ## About
 This project intends to explain about AWS API Gateway Lambda integration types Proxy and Non-Proxy
-
+This repository contains the reference material for the below tutorial video: 
+ - [AWS API Gateway – Lambda Proxy vs Non-Proxy Integration with Python]
+ - https://youtu.be/HrszWYar65M
+   
 ## Getting Started
 ### Prerequisites
 ### 1.0
@@ -26,86 +29,29 @@ This project intends to explain about AWS API Gateway Lambda integration types P
 
 ### Non-Proxy Integration    
 - python code 
-  - apigateway-lambda-proxy.py
+  - apigateway-lambda-nonproxy.py
 - JSON data
-  - apigateway-lambda-proxy.json
-  - 
-#### 1.3
-- Postman Installation
-  - Dwonload Link: https://www.postman.com/downloads/
-#### 1.4
-- Clone the repository to local
-  - git clone https://github.com/noelaanzi/serverless-app-azure-demo.git
+  - apigateway-lambda-nonproxy.json
 
 ### Steps
-### 2.0
-- Azure SQL Database
-  - Create Azure SQL Database from Azure portal
-    - Database Name: <YourDBServerName>   
-    - Database Server Name: <YourDBName>
-    - For creating Azure SQL Database please watch the video from below link:
-      - https://youtu.be/dDis6wenl-k
+### 1.0
+- Create Lambda Function
+  - From AWS console create a lambda function using python language
+  - Copy the Python Program from below files based on integration types:
+    - apigateway-lambda-proxy.py
+    - apigateway-lambda-nonproxy.py
+   - Please watch the video from below link for detailed explanation on Lambda:
+     - https://youtu.be/La8uu9CHRIA 
  #### 2.1 
-    - Create table & insert data
-           CREATE TABLE Customers
-          (
-            CustomerId INT IDENTITY  PRIMARY KEY,
-            FirstName NVARCHAR(100) NOT NULL,
-            LastName NVARCHAR(100) NOT NULL,
-            Email NVARCHAR(100) NOT NULL
-          );
-       - You can add more data using the below script just changing the values
-          INSERT INTO [Customers]
-          (
-            [FirstName]
-          , [LastName]
-          , [Email]
-          )
-          VALUES
-          (
-           'YourFirstName'
-           ,'YourLastName'
-           ,'asuresqldb123dummy@gmail.com'
-         );
-### 2.2
-- Azure Function APP
-- Create Azure Function App from Azure portal
-  - Function App Name: serverless-funcapp-demo
-  - Follow the configuration setting as instructed in the demo
-  - Add below environment variables
-    - DB_SERVER_NAME: [YourDBServerName] 
-    - DB_NAME: [YourDBName]
-### 2.3
-- Grant SQL DB Access to Managed Identity
-  - Connect to your SQL DB
-  - Run below SQL commands
-    - Replace  [YourFunctionAppName] with the name of your Function App
-
-      - CREATE USER [YourFunctionAppName] FROM EXTERNAL PROVIDER;
-      - ALTER ROLE db_datareader ADD MEMBER [YourFunctionAppName];
-      - ALTER ROLE db_datawriter ADD MEMBER [YourFunctionAppName];
-        
-### 2.4
-- Deploy Azure function to Azure Function App
-- Open the project in VS code which you cloned in ( ### Prerequisites, #### 1.4)
-- Deploy the function to Azure Function App created in ( ### Steps, ### 2.2 )
-- For creating & deploying Azure Function App please watch the video from below link:
-  - https://youtu.be/kVO6KkDwKRg
-### 2.5
-- Create API in API Management
-- For creating & deploying Azure API Management API please watch the video from below link:
-  - https://youtu.be/XkPXJTbsg2A
- 
-### 2.6
-- Test Azure API Management API in Postman
-  - For [POST] method to insert data to DB, pass JSON data in below format:
-       {
-       "FirstName":"YourFirstName",
-       "LastName":"YourLastName",
-       "Email":"s123dummy@gmail.com"
-      }
-  - For [GET] method to retrieve data from DB        
-    - Input -> pass query parameter id=<value> e.g. id=1 
+ - Create API
+   - Create REST API in AWS Console
+   - Create Method  Type “POST”
+ ### 2.2
+ - Test AWS API in Postman
+   - For proxy integration pass the below JSON data:
+     - apigateway-lambda-proxy.json  
+  - For non-proxy integration pass the below JSON data:        
+    - apigateway-lambda-nonproxy.json
     
 ## Contact
 - Name: Arockiadoss Jesudoss
